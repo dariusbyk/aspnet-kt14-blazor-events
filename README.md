@@ -1,13 +1,9 @@
-# \# aspnet-kt14-blazor-events
+# aspnet-kt14-blazor-events
 
-# 
+# Описание
 
-# \## Описание
+![Описание](screenshots/0.png)
 
-# !\[Описание](screenshots/0.png)
+# Результат
 
-# 
-
-# \## Результат
-
-# !\[Результат 1](screenshots/1.png)
+![Результат 1](screenshots/1.png)
