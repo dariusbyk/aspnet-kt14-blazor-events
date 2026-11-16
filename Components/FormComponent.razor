@@ -1,0 +1,53 @@
+<h2>Форма пользователя</h2>
+
+<form @onsubmit:preventDefault="true">
+    <p>
+        <label for="userName">Имя:</label>
+        <input id="userName" type="text" value="@name" @oninput="HandleNameInput" />
+    </p>
+    <p>
+        <label for="userAge">Возраст:</label>
+        <input id="userAge" type="number" min="0" value="@age" @oninput="HandleAgeInput" />
+    </p>
+    <p>
+        <label for="userGender">Пол:</label>
+        <select id="userGender" value="@gender" @onchange="HandleGenderChange">
+            <option value="Мужской">Мужской</option>
+            <option value="Женский">Женский</option>
+        </select>
+    </p>
+    <button type="button" @onclick="ResetForm">Сбросить форму</button>
+</form>
+
+<h3>Введённые данные</h3>
+<p>Имя: @name</p>
+<p>Возраст: @age</p>
+<p>Пол: @gender</p>
+
+@code {
+    private string name = string.Empty;
+    private string age = string.Empty;
+    private string gender = "Мужской";
+
+    private void HandleNameInput(ChangeEventArgs e)
+    {
+        name = e.Value.ToString();
+    }
+
+    private void HandleAgeInput(ChangeEventArgs e)
+    {
+        age = e.Value.ToString();
+    }
+
+    private void HandleGenderChange(ChangeEventArgs e)
+    {
+        gender = e.Value.ToString();
+    }
+
+    private void ResetForm()
+    {
+        name = string.Empty;
+        age = string.Empty;
+        gender = "Мужской";
+    }
+}

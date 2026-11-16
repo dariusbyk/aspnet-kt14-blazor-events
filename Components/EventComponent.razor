@@ -1,0 +1,59 @@
+<h2>Пример из лекции</h2>
+
+<p>Количество нажатий: @clickCount</p>
+<button @onclick="HandleClick">Нажать</button>
+
+<p><label for="exampleText">Введите текст:</label></p>
+<input id="exampleText" type="text" @oninput="HandleInput" />
+<p>Введённый текст: @userInput</p>
+
+<label>
+    <input type="checkbox" @onchange="HandleCheckboxChange" />
+    Флажок
+</label>
+<p>
+    Состояние флажка:
+    @if (isChecked)
+    {
+        <text>установлен</text>
+    }
+    else
+    {
+        <text>снят</text>
+    }
+</p>
+
+<label for="exampleSelect">Выберите вариант:</label>
+<select id="exampleSelect" @onchange="HandleSelectChange">
+    <option value="Option1">Option1</option>
+    <option value="Option2">Option2</option>
+    <option value="Option3">Option3</option>
+</select>
+<p>Выбранный вариант: @selectedOption</p>
+
+@code {
+    private int clickCount = 0;
+    private string userInput = string.Empty;
+    private bool isChecked = false;
+    private string selectedOption = "Option1";
+
+    private void HandleClick()
+    {
+        clickCount = clickCount + 1;
+    }
+
+    private void HandleInput(ChangeEventArgs e)
+    {
+        userInput = e.Value.ToString();
+    }
+
+    private void HandleCheckboxChange(ChangeEventArgs e)
+    {
+        isChecked = (bool)e.Value;
+    }
+
+    private void HandleSelectChange(ChangeEventArgs e)
+    {
+        selectedOption = e.Value.ToString();
+    }
+}
